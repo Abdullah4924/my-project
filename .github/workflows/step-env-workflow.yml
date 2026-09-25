@@ -1,0 +1,21 @@
+name: Step Env Workflow
+
+on: 
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step1
+        env:
+          APP_NAME: MyWebsite
+        run: echo $APP_NAME
+
+      - name: Step 2
+        run: echo $APP_NAME
