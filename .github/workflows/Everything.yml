@@ -1,0 +1,25 @@
+name: EveryThing Upto Now
+
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+      - name: Check Version
+        run: python --version
+      - name: Print APPNAME
+        env:
+          APPNAME: MyWebsite
+        run: echo $APPNAME
+      - name: Run Python Program
+        run: python test.py
